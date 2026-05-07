@@ -1,0 +1,24 @@
+{
+  "entities": {
+    "Product": {
+      "title": "Product",
+      "description": "Un producto de la tienda de fútbol (jersey, balón o tacos)",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "price": { "type": "number" },
+        "category": { "type": "string", "enum": ["jerseys", "balones", "tacos"] },
+        "image": { "type": "string" },
+        "description": { "type": "string" }
+      },
+      "required": ["id", "name", "price", "category", "image"]
+    }
+  },
+  "firestore": {
+    "/products/{productId}": {
+      "schema": "Product",
+      "description": "Colección de productos de la tienda"
+    }
+  }
+}
